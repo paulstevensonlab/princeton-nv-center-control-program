@@ -1,0 +1,3067 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1751</width>
+    <height>877</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame_main">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1321</width>
+      <height>861</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QTabWidget" name="tab_main">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>801</width>
+       <height>711</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab_confocal">
+      <attribute name="title">
+       <string>Confocal</string>
+      </attribute>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>771</width>
+         <height>571</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="grid_confocal"/>
+      </widget>
+      <widget class="QPushButton" name="btn_confocal_start">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>590</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_confocal_stop">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>590</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Stop</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_confocal_x_start">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>610</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_confocal_x_stop">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>630</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="int_confocal_x_numdivs">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>650</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_confocal_y_start">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>610</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_confocal_y_stop">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>630</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="int_confocal_y_numdivs">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>650</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_confocal_z_start">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>610</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_confocal_z_stop">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>630</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="int_confocal_z_numdivs">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>650</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_confocal_acqtime">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>650</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_confocal_start">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>610</y>
+         <width>47</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>start</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_confocal_stop">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>630</y>
+         <width>47</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>stop</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_confocal_numdivs">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>650</y>
+         <width>47</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string># step</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_confocal_x">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>590</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>x</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_confocal_y">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>590</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>y</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_confocal_z">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>590</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>z</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_confocal_acqtime">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>630</y>
+         <width>71</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Acq. Time (s)</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_confocal_save">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>590</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_confocal_autoZ">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>650</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Auto Z</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="btn_confocal_mode_xy">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>610</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>XY Scan</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="btn_confocal_mode_xz">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>630</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>XZ Scan</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="btn_confocal_mode_yz">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>650</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>YZ Scan</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_confocal_autolevel">
+       <property name="geometry">
+        <rect>
+         <x>710</x>
+         <y>590</y>
+         <width>70</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>auto level</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_confocal_stage_x">
+       <property name="geometry">
+        <rect>
+         <x>620</x>
+         <y>610</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_confocal_stage_y">
+       <property name="geometry">
+        <rect>
+         <x>620</x>
+         <y>630</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_stage_x">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>610</y>
+         <width>47</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>stage_x</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_stage_y">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>630</y>
+         <width>47</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>stage_y</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_confocal_esr">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>660</y>
+         <width>151</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>Check ESR Contrast</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_confocal_live">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>650</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>LIVE</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_confocal_live_avg">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>630</y>
+         <width>31</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string># avg</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="int_confocal_live_avg">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>650</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="keyboardTracking">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_exp">
+      <attribute name="title">
+       <string>Pulsed Experiments</string>
+      </attribute>
+      <widget class="QWidget" name="gridLayoutWidget_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>380</y>
+         <width>511</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="grid_data_2"/>
+      </widget>
+      <widget class="QTreeView" name="tree_exp_params">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>10</y>
+         <width>256</width>
+         <height>671</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="var1_name">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>320</y>
+         <width>121</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="var1_start">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>320</y>
+         <width>71</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="var1_start_unit">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>320</y>
+         <width>31</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="var1_stop">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>320</y>
+         <width>71</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="var1_stop_unit">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>320</y>
+         <width>31</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="var1_numdivs">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>320</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="var1_delay">
+       <property name="geometry">
+        <rect>
+         <x>440</x>
+         <y>320</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_2dexp">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>350</y>
+         <width>21</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="var2_name">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>350</y>
+         <width>121</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="var2_start">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>350</y>
+         <width>71</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="var2_start_unit">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>350</y>
+         <width>31</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="var2_stop">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>350</y>
+         <width>71</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="var2_stop_unit">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>350</y>
+         <width>31</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="var2_numdivs">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>350</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="var2_delay">
+       <property name="geometry">
+        <rect>
+         <x>440</x>
+         <y>350</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_exp_start">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>660</y>
+         <width>61</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Run</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_exp_stop">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>660</y>
+         <width>61</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Stop</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_swap_var">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>330</y>
+         <width>16</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>:</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_exp_logx">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>300</y>
+         <width>41</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>log</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_exp_autofit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>660</y>
+         <width>41</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Fit:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbox_fittype">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>660</y>
+         <width>121</width>
+         <height>23</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_exp_var_name">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>300</y>
+         <width>81</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Sweep Variable</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_exp_var_start">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>300</y>
+         <width>46</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_exp_var_stop">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>300</y>
+         <width>46</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Stop</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_exp_var_numdivs">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>300</y>
+         <width>46</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string># Steps</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_exp_var_delay">
+       <property name="geometry">
+        <rect>
+         <x>440</x>
+         <y>300</y>
+         <width>46</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Delay</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_exp_var1">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>320</y>
+         <width>16</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>X</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_exp_var2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>350</y>
+         <width>16</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>Y</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_beep">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>660</y>
+         <width>101</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>beep when done</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_exp_save">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>660</y>
+         <width>61</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+S</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_2dexp_meander">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>635</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>meander</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_PLE_fast">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>635</y>
+         <width>101</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>fast PLE sweep</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_newctr_2d">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>635</y>
+         <width>101</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>individual traces</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_exp_fig">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>511</width>
+         <height>281</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label_filename">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>0</y>
+          <width>231</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>label_filename</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_nvlist">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>0</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>NV #</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cbox_exp_name">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>0</y>
+          <width>141</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_exp_name">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>EXP:</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>511</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="grid_data_1"/>
+       </widget>
+       <widget class="QLabel" name="label_exp_pause">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>100</y>
+          <width>241</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_exp_pause">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>140</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>GO</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_exp_params">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>30</y>
+          <width>201</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>label_exp_params</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="btn_exp_fit">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>660</y>
+         <width>61</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Fit</string>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+S</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_spectrometer">
+      <attribute name="title">
+       <string>Spectrometer</string>
+      </attribute>
+      <widget class="QWidget" name="gridLayoutWidget_8">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>771</width>
+         <height>551</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="grid_spectrometer"/>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_spectrometer_centerwavelength">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>610</y>
+         <width>71</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="keyboardTracking">
+        <bool>false</bool>
+       </property>
+       <property name="maximum">
+        <double>1100.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>5.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_spectrometer_exptime">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>640</y>
+         <width>71</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>999999.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="int_spectrometer_xbin_start">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>610</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>1350</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="int_spectrometer_xbin_stop">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>640</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>1340</number>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_spectrometer_xbin">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>665</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>enabled</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="int_spectrometer_ybin_start">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>610</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="int_spectrometer_ybin_stop">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>640</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_spectrometer_ybin">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>665</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>enabled</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_spectrometer_acquire">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>610</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Acquire</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_spectrometer_stop">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>610</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Stop</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_spectrometer_centerwavelength">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>610</y>
+         <width>131</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>center wavelength (nm)</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_spectrometer_exptime">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>640</y>
+         <width>91</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>exposure time (s)</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_spectrometer_xbin">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>590</y>
+         <width>51</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>x-binning</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_spectrometer_ybin">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>590</y>
+         <width>51</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>y-binning</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_nvlist_spectrometer">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>NV #</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_spectrometer_start">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>610</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_spectrometer_start_2">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>640</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Stop</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_spectrometer_save">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>640</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_spectrometer_temp">
+       <property name="geometry">
+        <rect>
+         <x>650</x>
+         <y>610</y>
+         <width>131</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>label_spectrometer_temp</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbox_spectrometer_grating">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>640</y>
+         <width>181</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_spectrometer_live">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>640</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Live</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_spectrometer_connect">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>610</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Connect</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QLineEdit" name="linein_sample_name">
+     <property name="geometry">
+      <rect>
+       <x>630</x>
+       <y>10</y>
+       <width>181</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_sample_name">
+     <property name="geometry">
+      <rect>
+       <x>588</x>
+       <y>10</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sample:</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="chkbx_autosave">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>750</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Auto Save</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_p532">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>730</y>
+       <width>161</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>label_p532</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_logdisp">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>730</y>
+       <width>441</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Message Log</string>
+     </property>
+     <widget class="QScrollArea" name="logdisp_scroll">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>421</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>419</width>
+         <height>89</height>
+        </rect>
+       </property>
+       <widget class="QTextBrowser" name="logdisp">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>421</width>
+          <height>91</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_confocal">
+     <property name="geometry">
+      <rect>
+       <x>830</x>
+       <y>10</y>
+       <width>471</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Confocal Image</string>
+     </property>
+     <widget class="QLabel" name="linein_map">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>181</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>linein_map</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>451</width>
+        <height>381</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="grid_map"/>
+     </widget>
+     <widget class="QPushButton" name="btn_map_load">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>20</y>
+        <width>51</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_map_copy">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>20</y>
+        <width>51</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Copy</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_map_select">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>20</y>
+        <width>51</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_expinfo">
+     <property name="geometry">
+      <rect>
+       <x>830</x>
+       <y>460</y>
+       <width>471</width>
+       <height>391</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Experiments</string>
+     </property>
+     <widget class="QLabel" name="label_pb_disp">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>0</y>
+        <width>401</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_modules">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>171</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Modules</string>
+      </property>
+      <widget class="QPushButton" name="btn_widget_liveapd">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>15</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>LIVE APD</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_widget_seqapd">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>15</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>SEQ APD</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_widget_satcurve">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>SAT CURVE</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_widget_histogram">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>40</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>HISTOGRAM</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_widget_picoharp">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>65</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PICOHARP</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_widget_calculator">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>65</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>CALCULATOR</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_widget_batch">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>BATCH</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_widget_terminal">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>90</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TERMINAL</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_plnorm">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>290</y>
+        <width>131</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>PL Normalization</string>
+      </property>
+      <widget class="QDoubleSpinBox" name="dbl_plnorm_bright">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>20</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="specialValueText">
+        <string/>
+       </property>
+       <property name="decimals">
+        <number>3</number>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_plnorm_dark">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>40</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="decimals">
+        <number>3</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_plnorm_bright">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PL bright</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_plnorm_dark">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PL dark</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_plnorm">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>65</y>
+         <width>101</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Norm. Data</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_fits">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>210</y>
+        <width>271</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Fitting Parameters</string>
+      </property>
+      <widget class="QTextBrowser" name="disp_fits">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>251</width>
+         <height>141</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QCheckBox" name="chkbx_readoutcal">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>190</y>
+        <width>111</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>readout calibration</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkbx_inv2">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>170</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>inv2 (**)</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkbx_inv">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>190</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>phase inv (*)</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_sweep_time_est">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>820</y>
+       <width>351</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>label_sweep_time_est</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>730</y>
+       <width>201</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Shortcuts</string>
+     </property>
+     <widget class="QPushButton" name="btn_shortcuts_1">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_shortcuts_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_shortcuts_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_shortcuts_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_shortcuts_5">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>30</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_shortcuts_6">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>50</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_shortcuts_7">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>70</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_shortcuts_8">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>90</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_widget_shortcuts">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>10</y>
+        <width>31</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="icon.qrc">
+        <normaloff>:/icons/icons/gears.png</normaloff>:/icons/icons/gears.png</iconset>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_toolbox">
+    <property name="geometry">
+     <rect>
+      <x>1320</x>
+      <y>-1</y>
+      <width>431</width>
+      <height>861</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QTabWidget" name="tab_toolbox">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>425</width>
+       <height>841</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab_tracker">
+      <attribute name="title">
+       <string>Tracker</string>
+      </attribute>
+      <widget class="QPushButton" name="btn_tracker_run">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Track</string>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+T</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_widget_tracker">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>20</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="icon.qrc">
+         <normaloff>:/icons/icons/gears.png</normaloff>:/icons/icons/gears.png</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_tracker_xpos">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>20</y>
+         <width>60</width>
+         <height>23</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_tracker_ypos">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>20</y>
+         <width>60</width>
+         <height>23</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_tracker_zpos">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>20</y>
+         <width>60</width>
+         <height>23</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_tracker_home">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>20</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Home</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_tracker_drive">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>20</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>drive</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_tracker_y">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>2</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>y</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_tracker_x">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>2</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>x</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_tracker_z">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>2</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>z</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="GraphicsLayoutWidget" name="glw_tracker">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>401</width>
+         <height>701</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_tracker_period">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>790</y>
+         <width>70</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>time (min)</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_tracker_period">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>790</y>
+         <width>51</width>
+         <height>23</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_tracker_auto">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>790</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Track on Idle</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_nvlist_update">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>790</y>
+         <width>91</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Update NV List</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_tracker_clear">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>790</y>
+         <width>71</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Clear Log</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dbl_tracker_wait">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>50</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>50</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Tracker Wait (s):</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_pulseblaster">
+      <attribute name="title">
+       <string>PulseBlaster</string>
+      </attribute>
+      <widget class="QPushButton" name="btn_pb_cw">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Main CW</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_pb_run">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>50</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Pulse Program</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_pb_stop">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>80</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Off</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="linein_trackinglaser">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>20</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>green</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_pb_static">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>20</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>CW</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb8">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>210</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB8</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb4">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>130</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB4 (mw1)</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb5">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>150</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB5 (mw2)</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb6">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>170</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB6</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb7">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>190</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB7</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb3">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>110</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB3 (ctr1)</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb0">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>50</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB0 (blank green)</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb2">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>90</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB2 (ctr0)</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb1">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>70</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB1</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb9">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>230</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB9</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb10">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>250</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB10</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkbx_pb11">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>270</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PB11</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_pb_update_dict">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>290</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Reload pb_dict</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_pbcustom">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>340</y>
+         <width>401</width>
+         <height>461</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Custom Program</string>
+       </property>
+       <widget class="QTableWidget" name="table_pbcustom">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>351</width>
+          <height>401</height>
+         </rect>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+        <property name="rowCount">
+         <number>0</number>
+        </property>
+        <property name="columnCount">
+         <number>4</number>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>50</number>
+        </attribute>
+        <attribute name="verticalHeaderDefaultSectionSize">
+         <number>20</number>
+        </attribute>
+        <attribute name="verticalHeaderMinimumSectionSize">
+         <number>20</number>
+        </attribute>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+       </widget>
+       <widget class="QPushButton" name="btn_pbcustom_add">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>20</y>
+          <width>21</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_pbcustom_del">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>50</y>
+          <width>21</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_pbcustom_run">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>430</y>
+          <width>81</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Start</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_pbcustom_load">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>430</y>
+          <width>81</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Load</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_pbcustom_save">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>430</y>
+          <width>81</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="btn_pb_update_pulse_list">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>290</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Reload Pulse Functions</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_pb_load_params">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>180</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Pulse Params from .yaml</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_instruments">
+      <attribute name="title">
+       <string>Instruments</string>
+      </attribute>
+      <widget class="QLabel" name="inst_label_mw1">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>MW1</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="inst_chkbx_mw1_enable">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>40</y>
+         <width>21</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="inst_btn_mw1_onoff">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>40</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>On</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="inst_btn_mw1_iq">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>40</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>IQ</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="inst_btn_mw1_pulse">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>40</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Pulse</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="inst_label_mw2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>70</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>MW2</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="inst_chkbx_mw2_enable">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>70</y>
+         <width>21</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="inst_btn_mw2_onoff">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>70</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>On</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="inst_btn_mw2_iq">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>70</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>IQ</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="inst_btn_mw2_pulse">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>70</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Pulse</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>280</y>
+         <width>401</width>
+         <height>321</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="grid_inst_btn"/>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget_7">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>630</y>
+         <width>401</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="grid_inst_controls"/>
+      </widget>
+      <widget class="QLabel" name="label_inst_controls">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>610</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Control Panels</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_wavemeter_freq">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>250</y>
+         <width>201</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>label_wavemeter_freq</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_autoZ">
+      <attribute name="title">
+       <string>Z Correction</string>
+      </attribute>
+      <widget class="QTableWidget" name="table_confocalZ">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>321</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_confocalZ_add">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>20</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_confocalZ_del">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>60</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_confocalZ_calc">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>172</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Calc</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_confocalZ_eq">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>220</y>
+         <width>301</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>label_confocalZ_eq</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="btn_debug">
+    <property name="geometry">
+     <rect>
+      <x>1710</x>
+      <y>0</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icon.qrc">
+      <normaloff>:/icons/icons/bug.png</normaloff>:/icons/icons/bug.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1751</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <action name="actionSin">
+   <property name="text">
+    <string>Sin</string>
+   </property>
+  </action>
+  <action name="actionLorentzian">
+   <property name="text">
+    <string>Lorentzian</string>
+   </property>
+  </action>
+  <action name="actionGaussian">
+   <property name="text">
+    <string>Gaussian</string>
+   </property>
+  </action>
+  <action name="actionExpDecay">
+   <property name="text">
+    <string>Exp Decay</string>
+   </property>
+  </action>
+  <action name="actionPowerDecay">
+   <property name="text">
+    <string>Power Decay</string>
+   </property>
+  </action>
+  <action name="actionN15pol">
+   <property name="text">
+    <string>N15pol</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GraphicsLayoutWidget</class>
+   <extends>QGraphicsView</extends>
+   <header>pyqtgraph.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
