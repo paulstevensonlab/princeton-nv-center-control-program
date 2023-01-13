@@ -401,5 +401,15 @@ class TaskHandler(ExpThread.ExpThread):
             self.mainexp.thread_spectrometer.start()
             self.mainexp.thread_spectrometer.wait()
 
+#   Quality of life functions added. Need to check if these are necessary
+
     def set_inv(self,inv):
         self.mainexp.chkbx_inv.setChecked(inv)
+
+    def set_mw_checked(self,src=0,setflag=False):
+        if src == 1:
+            self.mainexp.inst_chkbx_mw1_enable.setChecked(setflag)
+        elif src == 2:
+            self.mainexp.inst_chkbx_mw2_enable.setChecked(setflag)
+            return
+        return

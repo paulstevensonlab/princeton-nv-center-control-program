@@ -22,15 +22,32 @@ def yaml2dict(filename='exp_params.yaml'):
         raise ImportError
 
 
-def save_data(filename, data, graph=None, fig=None, sweep_params=None, tracker_tab = None):
+def save_data(filename, data, graph=None, fig=None, sweep_params=None, remotedir=r'Y:\Data\Confocal1',tracker_tab = None):
+    if os.path.exists(remotedir):
+        saveremote = True
+    else:
+        saveremote = False
+
     if True:
         scipy.io.savemat(os.path.expanduser(os.path.join('~', 'Documents', 'data_mat', filename+'.mat')), mdict=data)
+        if saveremote:
+            scipy.io.savemat(os.path.expanduser(os.path.join(remotedir, 'data_mat', filename + '.mat')),
+                             mdict=data)
     if graph is not None:
         graph.save(os.path.expanduser(os.path.join('~', 'Documents', 'graphs_mat', '%s.png' % filename)), 'png')
+        if saveremote:
+            graph.save(os.path.expanduser(os.path.join(remotedir, 'graphs_mat', '%s.png' % filename)), 'png')
+
     if fig is not None:
         fig.save(os.path.expanduser(os.path.join('~', 'Documents', 'figs_mat', '%s.png' % filename)), 'png')
+        if saveremote:
+            fig.save(os.path.expanduser(os.path.join(remotedir, 'figs_mat', '%s.png' % filename)), 'png')
     if sweep_params is not None:
         dict2yaml(sweep_params, os.path.expanduser(os.path.join('~', 'Documents', 'data_mat', '%s.yaml' % filename)))
+        if saveremote:
+            dict2yaml(sweep_params,
+                      os.path.expanduser(os.path.join(remotedir, 'data_mat', '%s.yaml' % filename)))
+
     # if tracker_tab is not None:
     #     tracker_tab.save(os.path.expanduser(os.path.join('~', 'Documents', 'figs_mat', '%s.png' % filename)), 'png')
 
