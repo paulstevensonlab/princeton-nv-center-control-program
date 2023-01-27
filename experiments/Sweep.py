@@ -441,6 +441,7 @@ class Sweep(ExpThread.ExpThread):
 
     def setup_ctr_cw(self):
         self.ctr0.reset()
+        self.ctr0.set_source(self.mainexp.inst_params['instruments']['ctrapd']['addr_src'])
         self.ctrtrig.reset()
         self.ctr0.set_pause_trigger(self.mainexp.inst_params['instruments']['ctrtrig']['addr_out'])
 

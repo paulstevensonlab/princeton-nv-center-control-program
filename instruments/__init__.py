@@ -27,3 +27,4 @@ from . import instr_widget
 from . import Raspberry
 from . import SRS
 from . import Siglent
+from . import windfreak
