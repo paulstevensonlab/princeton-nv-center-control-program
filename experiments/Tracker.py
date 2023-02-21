@@ -218,6 +218,7 @@ class Tracker(ExpThread.ExpThread):
         if self.tracker_pltime > 0.001:
             # Reset the counter back to single shot mode
             self.ctrapd.reset()
+            self.ctrapd.set_source(self.mainexp.inst_params['instruments']['ctrapd']['addr_src'])
             self.ctrclk.reset()
             self.ctrtrig.reset()
 

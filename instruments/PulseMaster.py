@@ -44,15 +44,27 @@ class PulseMaster(instr.PulseBlaster.PBESRPro):
         self.custom_readout = False
         self.params_readoutcal_enable = False  # enable the readout pulse parameters. e.g. aom_delay
 
-        self.readout_params = {'aom_delay': 700e-9,
+        # self.readout_params = {'aom_delay': 700e-9,
+        #                        'awg_offset': -200e-9,
+        #                        'awg_preedge': 80e-9,
+        #                        'awg_postedge': 20e-9,
+        #                        'mw_delay': 20e-9,
+        #                        'time_dark': 1000e-9,
+        #                        'time_green': 3e-6,
+        #                        'time_det': 300e-9,
+        #                        'time_sep': 1000e-9,
+        #                        'aom2_delay': 800e-9,
+        #                        'time_initial': 100e-9}
+
+        self.readout_params = {'aom_delay': 760e-9,
                                'awg_offset': -200e-9,
                                'awg_preedge': 80e-9,
                                'awg_postedge': 20e-9,
                                'mw_delay': 20e-9,
-                               'time_dark': 1000e-9,
-                               'time_green': 3e-6,
+                               'time_dark': 3000e-9,
+                               'time_green': 3.8e-6,
                                'time_det': 300e-9,
-                               'time_sep': 1000e-9,
+                               'time_sep': 2600e-9,
                                'aom2_delay': 800e-9,
                                'time_initial': 100e-9}
 
@@ -225,7 +237,7 @@ class PulseMaster(instr.PulseBlaster.PBESRPro):
                     inner_loop = self.add_inst(['green'], self.inst_set.LOOP, n_inner_loops-1, aom_delay)
                     self.add_inst(['green', 'ctr0'], self.inst_set.CONTINUE, 0, time_det)
                     self.add_inst(['green'], self.inst_set.CONTINUE, 0, time_green - aom_delay - time_det)
-                    self.add_inst(awglist, self.inst_set.CONTINUE, 0, time_sep - (time_green - aom_delay - time_det))
+                    # self.add_inst(awglist, self.inst_set.CONTINUE, 0, time_sep - (time_green - aom_delay - time_det))
                     self.add_inst(['ctr1'], self.inst_set.CONTINUE, 0, time_det)
                     self.add_inst([], self.inst_set.CONTINUE, 0, time_dark - (time_det + time_sep - (time_green - aom_delay - time_det)))
                     if self.awg_enable:
@@ -235,7 +247,7 @@ class PulseMaster(instr.PulseBlaster.PBESRPro):
                     self.add_inst(['green'], self.inst_set.CONTINUE, 0, aom_delay)
                     self.add_inst(['green', 'ctr0'], self.inst_set.CONTINUE, 0, time_det)
                     self.add_inst(['green'], self.inst_set.CONTINUE, 0, time_green - aom_delay - time_det)
-                    self.add_inst(awglist, self.inst_set.CONTINUE, 0, time_sep - (time_green - aom_delay - time_det))
+                    # self.add_inst(awglist, self.inst_set.CONTINUE, 0, time_sep - (time_green - aom_delay - time_det))
                     self.add_inst(['ctr1'], self.inst_set.CONTINUE, 0, time_det)
                     self.add_inst([], self.inst_set.END_LOOP, outer_loop, time_dark - (time_det + time_sep - (time_green - aom_delay - time_det)))
                     self.add_inst(['green'], self.inst_set.STOP, 0, 1e-6)
@@ -360,6 +372,7 @@ class PulseMaster(instr.PulseBlaster.PBESRPro):
         n_inner_loops = 100
         n_loops = math.floor(reps / n_inner_loops)
 
+        # awglist = []
         awglist = ['scope']  # Trigger the scope where the AWG is supposed to start
         if self.awg_enable:
             for awg in self.awg:
@@ -745,7 +758,7 @@ class PulseMaster(instr.PulseBlaster.PBESRPro):
             if inst_length != 0:
                 if inst_length*1e9 < 10:
                     print('Pulse Duration too short!')
-                    print(inst_length*1e9,flag_list)
+                    print(inst_length*1e9,flag_list,op_code)
                     raise ValueError('PulseBlaster instruction shorter than 10 ns')
                 self.inst_num = self.pb_inst_pbonly64(flag_num, op_code, int(inst_data), inst_length * 1e9)
 
