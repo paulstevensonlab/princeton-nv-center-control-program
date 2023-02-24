@@ -120,6 +120,16 @@ class SMB100A(GenericSource):
         self.freq_min = 100e3
         self.freq_max = 20e9
 
+class SML03(GenericSource):
+    'SML03 Analog Signal Generator'
+
+    def __init__(self, dev, ch=1):
+        super().__init__(dev, ch)
+
+        self.pow_min = -140
+        self.pow_max = 15
+        self.freq_min = 9e3
+        self.freq_max = 3.3e9
 
 if __name__ == '__main__':
     print('R&S Test')
