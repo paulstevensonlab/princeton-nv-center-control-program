@@ -6,8 +6,8 @@ from instruments import GPIBdev
 
 class GenericSource(GPIBdev.GPIBdev):
     'Dual Channel Signal Generator'
-    def __init__(self, dev, ch=1):
-        super().__init__(dev)
+    def __init__(self, dev, ch=1, **kwargs):
+        super().__init__(dev, **kwargs)
 
         self.pow_min = None
         self.pow_max = None
@@ -16,6 +16,9 @@ class GenericSource(GPIBdev.GPIBdev):
 
         self.ch = ch
         self.set_ch(ch)
+
+    def gpib_connect(self, **kwargs):
+        super().gpib_connect(**kwargs)
 
     def set_ch(self, num):
         # set whether to use ch1 or ch2
@@ -124,12 +127,15 @@ class SML03(GenericSource):
     'SML03 Analog Signal Generator'
 
     def __init__(self, dev, ch=1):
-        super().__init__(dev, ch)
+        super().__init__(dev, ch, read_termination='\n', write_termination='\n')
 
         self.pow_min = -140
         self.pow_max = 15
         self.freq_min = 9e3
         self.freq_max = 3.3e9
+
+    def gpib_connect(self):
+        super().gpib_connect(read_termination='\n', write_termination='\n')
 
 if __name__ == '__main__':
     print('R&S Test')
