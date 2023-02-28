@@ -835,7 +835,7 @@ class Sweep(ExpThread.ExpThread):
                 print("row data duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
                     dt_data_row, dt_data_row / dt_row, dt_data_row / dt_row_no_tracking))
                 dt_other_row = dt_row - (dt_data_row + dt_tracking_row)
-                print("other duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+                print("row other duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
                     dt_other_row, dt_other_row / dt_row, dt_other_row / dt_row_no_tracking))
 
                 index2 += 1
