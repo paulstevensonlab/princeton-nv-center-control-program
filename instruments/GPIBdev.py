@@ -1,4 +1,4 @@
-import visa as vs
+import pyvisa as vs
 import warnings
 
 
