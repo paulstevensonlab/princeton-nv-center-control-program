@@ -137,6 +137,60 @@ class SML03(GenericSource):
     def gpib_connect(self):
         super().gpib_connect(read_termination='\n', write_termination='\n')
 
+    def set_freq(self, freq):
+        # set generator frequency in Hz
+        if (freq < self.freq_min) or (freq > self.freq_max):
+            print('Freq Range Error! Tried to set to %f' % freq)
+        else:
+            self.gpib_write('SOUR:FREQ %.6f Hz' % (freq))
+
+    def get_freq(self):
+        return float(self.gpib_query('SOUR:FREQ:CW?'))
+
+    def set_pow(self, p):
+        # set generator power in dBm
+        if (p < self.pow_min) or (p > self.pow_max):
+            print('Power Range Error! Tried to set to %f' % p)
+        else:
+            self.gpib_write('SOUR:POW %.2f' % (p))
+
+    def set_mod(self, b):
+        # set_mod not available for RhodeSchwarz. Need to define a function for compatibility with mainexp
+        pass
+
+    def get_pow(self):
+        return float(self.gpib_query('SOUR:POW?'))
+
+    def set_output(self, b):
+        self.gpib_write('OUTP:STAT %d' % (b))
+
+    def get_output(self):
+        return int(self.gpib_query('OUTP?'))
+
+    def set_alc(self, b):
+        if type(b) == int:
+            self.gpib_write('SOUR:POW:ALC %d' % (b))
+        else:
+            self.gpib_write('SOUR:POW:ALC %s' % (b))
+
+    def set_pulsemod(self, b):
+        return
+
+    def get_pulsemod(self):
+        return 0
+
+    def set_pulsemod_src(self, src):
+        return
+
+    def set_pulsemod_src(self):
+        return
+
+    def set_iqmod(self, b):
+        pass
+
+    def get_iqmod(self):
+        return 0
+
 if __name__ == '__main__':
     print('R&S Test')
 
