@@ -705,6 +705,9 @@ class Sweep(ExpThread.ExpThread):
             self.pb.set_cw()
 
     def sweep_esr_2d(self):
+        t_start_sweep = time.perf_counter()
+        dt_tracking = 0.0
+        dt_data = 0.0
         xvar = self.var1
         yvar = self.var2
 
@@ -759,6 +762,9 @@ class Sweep(ExpThread.ExpThread):
             index2 = 0
 
             for y in self.sweeprng2:
+                t_start_row = time.perf_counter()
+                dt_data_row = 0.
+                dt_tracking_row = 0.
                 if not self.cancel:
                     self.setval_wrapper(yvar, y)
                     time.sleep(self.delay2)
@@ -770,15 +776,24 @@ class Sweep(ExpThread.ExpThread):
                         sweeprng1 = self.sweeprng1
                         index1 = 0
 
+
                     for x in sweeprng1:
                         if not self.cancel:
+                            t_start_track = time.perf_counter()
                             self.track_if_needed()
+                            t_end_track = time.perf_counter()
+                            dt_tracking += t_end_track - t_start_track
+                            dt_tracking_row += t_end_track - t_start_track
 
                             self.setval_wrapper(xvar, x)
 
                             if not self.cancel:
                                 if not self.isPLE:
+                                    t_start_data = time.perf_counter()
                                     data = self.get_esr_data(self.delay1)
+                                    t_end_data = time.perf_counter()
+                                    dt_data += t_end_data - t_start_data
+                                    dt_data_row += t_end_data - t_start_data
                                     if not self.use_pb:
                                         self.esr_update_2d_cw(data, index1, index2)
                                     else:
@@ -790,7 +805,11 @@ class Sweep(ExpThread.ExpThread):
                                                                          data[3], data[4], data[5],
                                                                          index1, index2)
                                 else:
+                                    t_start_data = time.perf_counter()
                                     data = self.get_esr_data(self.delay1)
+                                    t_end_data = time.perf_counter()
+                                    dt_data += t_end_data - t_start_data
+                                    dt_data_row += t_end_data - t_start_data
                                     if self.use_pb:
                                         data = data[0]  # take only sig for PLE
 
@@ -808,7 +827,31 @@ class Sweep(ExpThread.ExpThread):
                             index1 += 1
 
                     self.lasttracktime = -1.0  # force tracking on the first point in the next row
+                t_end_row = time.perf_counter()
+                dt_row = t_end_row - t_start_row
+                dt_row_no_tracking = dt_row - dt_tracking_row
+                print("row duration = {:.3f} s".format(dt_row))
+                print("row tracking duration = {:.3f} s ({:.2%} total)".format(dt_tracking_row, dt_tracking_row / dt_row))
+                print("row data duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+                    dt_data_row, dt_data_row / dt_row, dt_data_row / dt_row_no_tracking))
+                dt_other_row = dt_row - (dt_data_row + dt_tracking_row)
+                print("other duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+                    dt_other_row, dt_other_row / dt_row, dt_other_row / dt_row_no_tracking))
+
                 index2 += 1
+
+            t_end_sweep = time.perf_counter()
+            dt_sweep = t_end_sweep - t_start_sweep
+            dt_sweep_no_tracking = dt_sweep - dt_tracking
+            print("total sweep2d duration = {:.3f} s".format(dt_sweep))
+            print("estimated sweep duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+                est_total_time, est_total_time / dt_sweep, est_total_time / dt_sweep_no_tracking))
+            print("tracking duration = {:.3f} s ({:.2%} total)".format(dt_tracking, dt_tracking / dt_sweep))
+            print("data duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+                dt_data, dt_data / dt_sweep, dt_data / dt_sweep_no_tracking))
+            dt_other = dt_sweep - (dt_data + dt_tracking)
+            print("other duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+                dt_other, dt_other / dt_sweep, dt_other / dt_sweep_no_tracking))
 
             if self.cancel:
                 self.pb.stop()
