@@ -595,6 +595,9 @@ class Sweep(ExpThread.ExpThread):
         return ctr_raw
 
     def sweep_esr_1d(self):
+        t_start_sweep = time.perf_counter()
+        dt_tracking = 0.0
+        dt_data = 0.0
         xvar = self.var1
         # check if the endpoints are valid pulse parameters
         errorstring = ''
@@ -630,7 +633,10 @@ class Sweep(ExpThread.ExpThread):
                 if index == 0:
                     warnings.simplefilter('ignore', RuntimeWarning)
 
+                t_start_track = time.perf_counter()
                 self.track_if_needed()
+                t_end_track = time.perf_counter()
+                dt_tracking += t_end_track - t_start_track
 
                 self.setval_wrapper(xvar, x)
 
@@ -639,7 +645,10 @@ class Sweep(ExpThread.ExpThread):
                         if index == 0:
                             time.sleep(self.delay2)
                         if not self.newctr:
+                            t_start_data = time.perf_counter()
                             data = self.get_esr_data(self.delay1)
+                            t_end_data = time.perf_counter()
+                            dt_data += t_end_data - t_start_data
                             if not self.use_pb:
                                 self.esr_update_1d_cw(data, index)
                             else:
@@ -649,13 +658,19 @@ class Sweep(ExpThread.ExpThread):
                                     self.esr_update_1d_inv2(data[0], data[1], data[2], data[3],
                                                                               data[4], data[5], index)
                         else:  # newctr gating
+                            t_start_data = time.perf_counter()
                             data = self.get_esr_data_newctr(self.delay1)
+                            t_end_data = time.perf_counter()
+                            dt_data += t_end_data - t_start_data
                             if not self.newctr_2d:
                                 data = [np.sum(data[0], axis=1), data[1]]
                             self.esr_update_1d_newctr(data, index)
 
                     else:
+                        t_start_data = time.perf_counter()
                         data = self.get_esr_data(self.delay1)
+                        t_end_data = time.perf_counter()
+                        dt_data += t_end_data - t_start_data
                         if self.use_pb:
                             data = data[0]  # take only sig for PLE
                         if self.ple_ref:
@@ -667,6 +682,23 @@ class Sweep(ExpThread.ExpThread):
                         self.ple_update_1d(data, ref, index)
 
             index += 1
+
+        t_end_sweep = time.perf_counter()
+        dt_sweep = t_end_sweep - t_start_sweep
+        dt_sweep_no_tracking = dt_sweep - dt_tracking
+        print("sweep1d duration = {:.3f} s".format(dt_sweep))
+        print("estimated sweep duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+            est_total_time,
+            est_total_time/dt_sweep,
+            est_total_time/dt_sweep_no_tracking))
+        print("tracking duration = {:.3f} s ({:.2%} total)".format(dt_tracking, dt_tracking/dt_sweep))
+        print("data duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+            dt_data,
+            dt_data/dt_sweep,
+            dt_data/dt_sweep_no_tracking))
+        dt_other = dt_sweep - (dt_data + dt_tracking)
+        print("other duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+            dt_other, dt_other / dt_sweep, dt_other / dt_sweep_no_tracking))
 
         if self.cancel:
             self.pb.stop()
