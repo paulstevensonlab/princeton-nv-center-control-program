@@ -1,7 +1,7 @@
 import pyvisa as vs
 import warnings
 
-vs.log_to_screen()
+# vs.log_to_screen()
 
 class GPIBdev:
 
