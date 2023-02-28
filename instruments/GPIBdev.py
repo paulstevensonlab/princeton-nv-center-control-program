@@ -1,6 +1,7 @@
 import pyvisa as vs
 import warnings
 
+vs.log_to_screen()
 
 class GPIBdev:
 
@@ -8,6 +9,7 @@ class GPIBdev:
         self.dev = dev
         self.connected = False
         rm = vs.ResourceManager()
+        print("GPIBdev __init__(): dev = {} **kwargs = {}".format(dev, kwargs))
 
         try:
             self.inst = rm.open_resource(dev, access_mode=4, **kwargs) # access_mode set to load interface params from NI-Max
