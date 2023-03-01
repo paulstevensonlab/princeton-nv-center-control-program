@@ -686,7 +686,7 @@ class Sweep(ExpThread.ExpThread):
         t_end_sweep = time.perf_counter()
         dt_sweep = t_end_sweep - t_start_sweep
         dt_sweep_no_tracking = dt_sweep - dt_tracking
-        print("sweep1d duration = {:.3f} s".format(dt_sweep))
+        print("total sweep1d duration = {:.3f} s".format(dt_sweep))
         print("estimated sweep duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
             est_total_time,
             est_total_time/dt_sweep,
