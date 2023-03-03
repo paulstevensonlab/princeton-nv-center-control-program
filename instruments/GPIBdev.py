@@ -47,7 +47,6 @@ class GPIBdevTCPIP:
         self.dev = dev
         self.connected = False
         rm = vs.ResourceManager()
-        print("GPIBdevTCPIP __init__(): dev = {} **kwargs = {}".format(dev, kwargs))
 
         try:
             self.inst = rm.open_resource(dev, **kwargs) # access_mode set to load interface params from NI-Max
