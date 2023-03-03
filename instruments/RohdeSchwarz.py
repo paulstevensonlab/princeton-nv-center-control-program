@@ -56,7 +56,7 @@ class GenericSource(GPIBdev.GPIBdevTCPIP):
         self.gpib_write('OUTP%d:STAT %d' % (self.ch, b))
 
     def get_output(self):
-        return int(self.gpib_query('OUTP%d?' % self.ch))
+        return int(float(self.gpib_query('OUTP%d?' % self.ch)))
 
     def set_alc(self, b):
         if type(b) == int:
@@ -166,7 +166,7 @@ class SML03(GenericSource):
         self.gpib_write('OUTP:STAT %d' % (b))
 
     def get_output(self):
-        return int(self.gpib_query('OUTP?'))
+        return int(float(self.gpib_query('OUTP?')))
 
     def set_alc(self, b):
         if type(b) == int:
