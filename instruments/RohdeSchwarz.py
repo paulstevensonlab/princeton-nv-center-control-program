@@ -128,7 +128,11 @@ class SML03(GenericSource):
     'SML03 Analog Signal Generator'
 
     def __init__(self, dev, ch=1):
-        super().__init__(dev, ch, read_termination='\n', write_termination='\n')
+        super().__init__(dev, ch,
+             write_termination='\n', # this must be \n, not \r\n, or it throws a timeout error
+             read_termination='\n', # this is optional to override, but it's easier to make it the same
+             timeout=5000, # increase from the default of 2000 ms
+        )
 
         self.pow_min = -140
         self.pow_max = 15
@@ -136,7 +140,7 @@ class SML03(GenericSource):
         self.freq_max = 3.3e9
 
     def gpib_connect(self):
-        super().gpib_connect(read_termination='\n', write_termination='\n')
+        super().gpib_connect(write_termination='\n', read_termination='\n', timeout=5000)
 
     def set_freq(self, freq):
         # set generator frequency in Hz
