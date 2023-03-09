@@ -75,6 +75,7 @@ class GenericFit:
     def __init__(self, data=None, xvals=None):
         if xvals is None and data is not None:
             xvals = range(len(data))
+        # "fp" is short for "fit parameters"
         self.fp = np.array([])
         self.cov = np.array([])
         self.err = np.array([])

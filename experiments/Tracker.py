@@ -140,6 +140,7 @@ class Tracker(ExpThread.ExpThread):
             else:
                 newpos = peakcenter
         except RuntimeError:
+            # When the least-squares minimization fails.
             # print('optimal parameters not found, setting to mid range')
             newpos = self.tracker_pos[direction]
             fitdata = np.ones(self.tracker_numdivs + 1) * np.mean(data)
