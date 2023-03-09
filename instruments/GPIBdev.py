@@ -1,6 +1,7 @@
 import pyvisa as vs
 import warnings
 
+# Uncomment to enable exhaustive pyvisa debug output.
 # vs.log_to_screen()
 
 class GPIBdev:
