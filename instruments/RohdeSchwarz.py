@@ -3,9 +3,7 @@
 from instruments import GPIBdev
 # import GPIBdev # use when running this as a main
 
-
-
-class GenericSource(GPIBdev.GPIBdevTCPIP):
+class GenericSource(GPIBdev.GPIBdev):
     'Dual Channel Signal Generator'
     def __init__(self, dev, ch=1, **kwargs):
         super().__init__(dev, **kwargs)
