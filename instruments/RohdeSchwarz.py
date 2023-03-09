@@ -146,7 +146,7 @@ class SML03(GenericSource):
             print('Freq Range Error! Tried to set to %f' % freq)
         else:
             # Add '*OPC?' to prevent VI_ERROR_TMO
-            self.gpib_write('SOUR:FREQ %.6f Hz; *OPC?' % (freq))
+            self.gpib_query('SOUR:FREQ %.6f Hz; *OPC?' % (freq))
 
     def get_freq(self):
         return float(self.gpib_query('SOUR:FREQ:CW?'))
@@ -157,7 +157,7 @@ class SML03(GenericSource):
             print('Power Range Error! Tried to set to %f' % p)
         else:
             # Add '*OPC?' to prevent VI_ERROR_TMO
-            self.gpib_write('SOUR:POW %.2f; *OPC?' % (p))
+            self.gpib_query('SOUR:POW %.2f; *OPC?' % (p))
 
     def set_mod(self, b):
         # set_mod not available for RhodeSchwarz. Need to define a function for compatibility with mainexp
@@ -168,7 +168,7 @@ class SML03(GenericSource):
 
     def set_output(self, b):
         # Add '*OPC?' to prevent VI_ERROR_TMO
-        self.gpib_write('OUTP:STAT %d; *OPC?' % (b))
+        self.gpib_query('OUTP:STAT %d; *OPC?' % (b))
 
     def get_output(self):
         return int(float(self.gpib_query('OUTP?')))
@@ -176,9 +176,9 @@ class SML03(GenericSource):
     def set_alc(self, b):
         # Add '*OPC?' to prevent VI_ERROR_TMO
         if type(b) == int:
-            self.gpib_write('SOUR:POW:ALC %d; *OPC?' % (b))
+            self.gpib_query('SOUR:POW:ALC %d; *OPC?' % (b))
         else:
-            self.gpib_write('SOUR:POW:ALC %s; *OPC?' % (b))
+            self.gpib_query('SOUR:POW:ALC %s; *OPC?' % (b))
 
     def set_pulsemod(self, b):
         return
