@@ -24,7 +24,7 @@ def yaml2dict(filename='exp_params.yaml'):
 
 def save_data(filename, data, graph=None, fig=None, sweep_params=None, remotedir=r'Y:\Data\Confocal1',tracker_tab = None):
     if os.path.exists(remotedir):
-        saveremote = True
+        saveremote = False # temporary while DiamondVault is down, FIXME
     else:
         saveremote = False
 
