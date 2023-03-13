@@ -93,6 +93,26 @@ class SMATE200A(GenericSource):
         self.freq_min = 100e3
         self.freq_max = 6e9
 
+    def set_freq(self, freq):
+        # set generator frequency in Hz
+        if (freq < self.freq_min) or (freq > self.freq_max):
+            print('Freq Range Error! Tried to set to %f' % freq)
+        else:
+            # Append '*OPC?' to prevent overlapping commands and VI_ERROR_TMO
+            self.gpib_query('SOUR%d:FREQ %.6f Hz; *OPC?' % (self.ch, freq))
+
+    def set_pow(self, p):
+        # set generator power in dBm
+        if (p < self.pow_min) or (p > self.pow_max):
+            print('Power Range Error! Tried to set to %f' % p)
+        else:
+            # Append '*OPC?' to prevent overlapping commands and VI_ERROR_TMO
+            self.gpib_query('SOUR%d:POW %.2f; *OPC?' % (self.ch, p))
+
+    def set_output(self, b):
+        # Append '*OPC?' to prevent overlapping commands and VI_ERROR_TMO
+        self.gpib_query('OUTP%d:STAT %d; *OPC?' % (self.ch, b))
+
     '''Add vector modulation functions'''
     def set_iqmod(self, b):
         self.gpib_write('SOUR%d:IQ:STAT %d' % (self.ch, b))
