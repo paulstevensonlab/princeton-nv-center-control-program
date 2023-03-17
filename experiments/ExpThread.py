@@ -49,6 +49,8 @@ class ExpThread(QThread):
                 else:
                     sweep_params['readout_params'] = {'p532': p532}
 
+        sweep_params['sample'] = self.mainexp.linein_sample_name.text()
+
         file_utils.save_data(filename, data_dict, graph=graph, fig=fig, sweep_params=sweep_params)
 
         # Increment wavenum if it has not been incremented already
