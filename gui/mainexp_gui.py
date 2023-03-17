@@ -246,6 +246,7 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             elif 'awg' in ins:
                 self.awglist.append(getattr(self, ins))
             elif 'voa' in ins:  # voltage-controlled optical attenuator
+                # TODO: consider saving and loading these from guisettings.config
                 ins_dev = getattr(self, ins)
                 self.setval[ins] = getattr(ins_dev, 'set_voltage')
                 self.getval[ins] = getattr(ins_dev, 'get_voltage')
