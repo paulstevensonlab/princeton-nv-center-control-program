@@ -1639,11 +1639,16 @@ class Sweep(ExpThread.ExpThread):
                                  'is_norm': self.pl_norm,
                                  'chxbx_2desr': self.is2D}
 
+        # Add mw1 and mw2 checked state.
+        sweep_params['Instrument']['mw1enabled'] = self.mainexp.inst_chkbx_mw1_enable.isChecked()
+        sweep_params['Instrument']['mw2enabled'] = self.mainexp.inst_chkbx_mw2_enable.isChecked()
+
         sweep_params['readout_params'] = dict((k, v) for k, v in self.pb.readout_params.items())
         try:
             sweep_params['readout_params'].update({'p532': self.mainexp.pm100d.get_pow()*1e3})
         except:
             pass
+
 
         if 'orange' in exp_name and self.sweep_finished:
             if hasattr(self.mainexp, 'pm100d_orange'):
