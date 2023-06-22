@@ -285,18 +285,18 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             elif 'coil' in ins:
                 keycoilcur = ins + 'Current'
                 keycoilvol = ins + 'Volt'
-                keycoilMaxvol = ins + 'VoltOP'
+                # keycoilMaxvol = ins + 'VoltOP'
 
                 self.exp_params['Instrument'][keycoilcur] = 0
                 self.exp_params['Instrument'][keycoilvol] = 0
-                self.exp_params['Instrument'][keycoilMaxvol] = 1
+                # self.exp_params['Instrument'][keycoilMaxvol] = 1
 
                 self.setval[keycoilcur] = getattr(getattr(self, ins), 'set_current')
                 self.getval[keycoilcur] = getattr(getattr(self, ins), 'get_current')
                 self.setval[keycoilvol] = getattr(getattr(self, ins), 'set_voltage')
                 self.getval[keycoilvol] = getattr(getattr(self, ins), 'get_voltage')
-                self.setval[keycoilMaxvol] = getattr(getattr(self, ins), 'set_voltageOP')
-                self.getval[keycoilMaxvol] = getattr(getattr(self, ins), 'get_voltageOP')
+                # self.setval[keycoilMaxvol] = getattr(getattr(self, ins), 'set_voltageOP')
+                # self.getval[keycoilMaxvol] = getattr(getattr(self, ins), 'get_voltageOP')
             elif 'tisapp' in ins:
                 keytisapplamb = ins + 'Wavelength'
                 keytisappave = ins + 'Averages'

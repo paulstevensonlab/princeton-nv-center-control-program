@@ -48,6 +48,7 @@ class GenericSource(GPIBdev.GPIBdev):
         pass
 
     def get_pow(self):
+        print(float(self.gpib_query('SOUR%d:POW?' % self.ch)))
         return float(self.gpib_query('SOUR%d:POW?' % self.ch))
 
     def set_output(self, b):
@@ -86,7 +87,7 @@ class GenericSource(GPIBdev.GPIBdev):
 class SMATE200A(GenericSource):
     'SMATE200A Dual Channel Vector Signal Generator'
     def __init__(self, dev, ch=1):
-        super().__init__(dev, ch)
+        super().__init__(dev, ch, timeout=5000)
 
         self.pow_min = -145
         self.pow_max = 20  # Ophir can handle 10 dBm
@@ -120,6 +121,68 @@ class SMATE200A(GenericSource):
     def get_iqmod(self):
         return int(self.gpib_query('SOUR%d:IQ:STAT?' % self.ch))
 
+class SMIQ(GenericSource):
+    'SMATE200A Dual Channel Vector Signal Generator'
+    def __init__(self, dev, ch=1):
+        super().__init__(dev, ch, timeout=10000, read_termination='\n')
+
+        self.pow_min = -145
+        self.pow_max = 20  # Ophir can handle 10 dBm
+        self.freq_min = 100e3
+        self.freq_max = 6e9
+
+    def set_freq(self, freq):
+        # set generator frequency in Hz
+        if (freq < self.freq_min) or (freq > self.freq_max):
+            print('Freq Range Error! Tried to set to %f' % freq)
+        else:
+            # Append '*OPC?' to prevent overlapping commands and VI_ERROR_TMO
+            self.gpib_query('SOUR%d:FREQ %.6f Hz; *OPC?' % (self.ch, freq))
+
+    def set_pow(self, p):
+        # set generator power in dBm
+        if (p < self.pow_min) or (p > self.pow_max):
+            print('Power Range Error! Tried to set to %f' % p)
+        else:
+            # Append '*OPC?' to prevent overlapping commands and VI_ERROR_TMO
+            self.gpib_query('SOUR%d:POW %.2f; *OPC?' % (self.ch, p))
+
+    def set_output(self, b):
+        # Append '*OPC?' to prevent overlapping commands and VI_ERROR_TMO
+        self.gpib_query('OUTP%d:STAT %d; *OPC?' % (self.ch, b))
+
+    '''Add vector modulation functions'''
+    def set_iqmod(self, b):
+        self.gpib_write('SOUR%d:DM:IQ:STAT %d' % (self.ch, b))
+
+    def get_iqmod(self):
+        try:
+            retval = int(self.gpib_query('SOUR%d:DM:IQ:STAT?' % self.ch))
+        except:
+            retval = int(self.gpib_query('SOUR%d:DM:IQ:STAT?' % self.ch))
+        return retval
+
+
+class SMATE200A_1(SMATE200A):
+    def __init__(self, dev):
+        super().__init__(dev, ch=1)
+
+
+class SMATE200A_2(SMATE200A):
+    def __init__(self, dev):
+        super().__init__(dev, ch=2)
+
+
+class SMB100A(GenericSource):
+    'SMB100A Analog Signal Generator'
+
+    def __init__(self, dev, ch=1):
+        super().__init__(dev, ch)
+
+        self.pow_min = -20
+        self.pow_max = 14
+        self.freq_min = 100e3
+        self.freq_max = 20e9
 
 class SMATE200A_1(SMATE200A):
     def __init__(self, dev):

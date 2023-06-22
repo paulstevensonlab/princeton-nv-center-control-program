@@ -103,3 +103,61 @@ class SDG6022X_RF(GPIBdev.GPIBdev):
 
     def set_alc(self, b):
         print('No ALC setting available on N9310A. This does nothing.')
+
+class KA3005P(GPIBdev.GPIBdev):
+    'Korad power supply class DC power supply class'
+
+    def __init__(self, dev):
+        super().__init__(dev)
+        #self.inst.timeout = 10000
+        # limits of the device
+        self.vmin = +0
+        self.vmax = +20
+        self.imin = +0
+        self.imax = +5
+        print('Here')
+
+    def set_current(self, cur):
+        self.gpib_write('ISET1:%s' % (cur))
+
+    def get_current(self):
+        curM = self.gpib_query('ISET1?')
+        return curM
+
+    def set_voltage(self, vol):
+        self.gpib_write('VSET1:%s' % (vol))
+
+    def get_voltage(self):
+        voltM = self.gpib_query('VSET1?')
+        return voltM
+
+    # def set_IV(self, cur, vol):
+        # self.gpib_write('APPLy %s, %s' % (vol, cur))
+
+    def set_voltageOP(self, volOP):
+        return
+
+    def get_voltageOP(self):
+        # voltOP = self.gpib_query('VOLTage:PROTection?')
+        return True
+
+    def set_output(self, outState):
+        return True
+        # self.gpib_write('OUTPut %d' % outState)
+
+    def set_limits(self):
+        # self.gpib_write('VOLTage:PROTection %f' % self.vmax)
+        # self.gpib_write('CURRent:PROTection %f' % self.imax)
+        return
+
+    def btn_output(self):
+        # self.gpib_write('OUTPut ON')
+        # self.gpib_write("VOLTage:RANGe P8V")
+        # self.gpib_write("VOLTage:PROTection:STATe 1")
+        return
+
+    def btn_reset(self):
+        # self.gpib_write('*RST')
+        # self.gpib_write("VOLTage:RANGe P8V")
+        # self.gpib_write("VOLTage:PROTection:STATe 1")
+        return
