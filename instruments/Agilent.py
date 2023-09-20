@@ -268,7 +268,7 @@ class E3633A(GPIBdev.GPIBdev):
         self.vmin = +0
         self.vmax = +25
         self.imin = +0
-        self.imax = +20
+        self.imax = +200
 
     def set_current(self, cur):
         self.gpib_write('CURR %s' % (cur))
