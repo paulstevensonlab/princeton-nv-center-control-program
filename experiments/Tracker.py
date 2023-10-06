@@ -130,7 +130,7 @@ class Tracker(ExpThread.ExpThread):
             peak_sig = fp[0]**2
             peak_offset = fp[3]
 
-            print('%s sig: %.2f, bkg: %.2f, ratio: %.2f, width: %.2e\n' % (datetime.datetime.now(), peak_sig, peak_offset, peak_sig/peak_offset, peakwidth))
+            #print('%s sig: %.2f, bkg: %.2f, ratio: %.2f, width: %.2e\n' % (datetime.datetime.now(), peak_sig, peak_offset, peak_sig/peak_offset, peakwidth))
 
             tol = 1.5  # how far out of scanning range the optimal point can be
             if abs(peakcenter - np.mean(xvals)) > abs(xvals[0] - xvals[-1])/2 * tol:
