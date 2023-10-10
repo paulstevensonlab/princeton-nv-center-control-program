@@ -1,5 +1,6 @@
 from instruments import GPIBdev
 import numpy as np
+import time
 
 
 
@@ -103,6 +104,90 @@ class SDG6022X_RF(GPIBdev.GPIBdev):
 
     def set_alc(self, b):
         print('No ALC setting available on N9310A. This does nothing.')
+
+class BK1688B(GPIBdev.GPIBdev):
+    'Korad power supply class DC power supply class'
+
+    def __init__(self, dev):
+        super().__init__(dev, read_termination='\r', write_termination='\r')
+        #self.inst.timeout = 10000
+        # limits of the device
+        self.vmin = +0
+        self.vmax = +18
+        self.imin = +0
+        self.imax = +20
+        print('Here')
+
+    def set_current(self, cur):
+        if cur<1.0:
+            stradd = 'CURR00'
+        elif cur<10.0:
+            stradd = 'CURR0'
+        else:
+            stradd = 'CURR'
+        cval = str(int(round(10*cur)))
+        setstr = stradd+cval
+        print(cur, setstr)
+        self.gpib_query(setstr)
+
+    def get_current(self):
+        time.sleep(0.5)
+        alldat = self.gpib_query('GETD')
+        if alldat == 'OK':
+            alldat = self.gpib_query('GETD')
+        print(alldat)
+        curM = alldat[4:8]
+        return float(curM)/100.
+
+    def set_voltage(self, vol):
+        if vol < 1.0:
+            stradd = 'VOLT00'
+        elif vol<10.0:
+            stradd = 'VOLT0'
+        else:
+            stradd = 'VOLT'
+        vval = str(round(10*vol))
+        setstr = stradd+vval
+        self.gpib_query(setstr)
+
+    def get_voltage(self):
+        time.sleep(0.5)
+        alldat = self.gpib_query('GETD')
+        if alldat == 'OK':
+            alldat = self.gpib_query('GETD')
+        volM = alldat[0:4]
+        return float(volM)/100.
+
+    # def set_IV(self, cur, vol):
+        # self.gpib_write('APPLy %s, %s' % (vol, cur))
+
+    def set_voltageOP(self, volOP):
+        return
+
+    def get_voltageOP(self):
+        # voltOP = self.gpib_query('VOLTage:PROTection?')
+        return True
+
+    def set_output(self, outState):
+        return True
+        # self.gpib_write('OUTPut %d' % outState)
+
+    def set_limits(self):
+        # self.gpib_write('VOLTage:PROTection %f' % self.vmax)
+        # self.gpib_write('CURRent:PROTection %f' % self.imax)
+        return
+
+    def btn_output(self):
+        # self.gpib_write('OUTPut ON')
+        # self.gpib_write("VOLTage:RANGe P8V")
+        # self.gpib_write("VOLTage:PROTection:STATe 1")
+        return
+
+    def btn_reset(self):
+        # self.gpib_write('*RST')
+        # self.gpib_write("VOLTage:RANGe P8V")
+        # self.gpib_write("VOLTage:PROTection:STATe 1")
+        return
 
 class KA3005P(GPIBdev.GPIBdev):
     'Korad power supply class DC power supply class'

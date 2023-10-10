@@ -40,3 +40,9 @@ class GPIBdev:
             return self.inst.query(str)
         else:
             return -1
+
+    def gpib_read(self):
+        if self.connected:
+            return self.inst.read()
+        else:
+            return -1
