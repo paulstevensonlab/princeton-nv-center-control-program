@@ -830,28 +830,28 @@ class Sweep(ExpThread.ExpThread):
                 t_end_row = time.perf_counter()
                 dt_row = t_end_row - t_start_row
                 dt_row_no_tracking = dt_row - dt_tracking_row
-                print("row duration = {:.3f} s".format(dt_row))
-                print("row tracking duration = {:.3f} s ({:.2%} total)".format(dt_tracking_row, dt_tracking_row / dt_row))
-                print("row data duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
-                    dt_data_row, dt_data_row / dt_row, dt_data_row / dt_row_no_tracking))
-                dt_other_row = dt_row - (dt_data_row + dt_tracking_row)
-                print("row other duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
-                    dt_other_row, dt_other_row / dt_row, dt_other_row / dt_row_no_tracking))
+                # print("row duration = {:.3f} s".format(dt_row))
+                # print("row tracking duration = {:.3f} s ({:.2%} total)".format(dt_tracking_row, dt_tracking_row / dt_row))
+                # print("row data duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+                #     dt_data_row, dt_data_row / dt_row, dt_data_row / dt_row_no_tracking))
+                # dt_other_row = dt_row - (dt_data_row + dt_tracking_row)
+                # print("row other duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+                #     dt_other_row, dt_other_row / dt_row, dt_other_row / dt_row_no_tracking))
 
                 index2 += 1
 
             t_end_sweep = time.perf_counter()
             dt_sweep = t_end_sweep - t_start_sweep
             dt_sweep_no_tracking = dt_sweep - dt_tracking
-            print("total sweep2d duration = {:.3f} s".format(dt_sweep))
-            print("estimated sweep duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
-                est_total_time, est_total_time / dt_sweep, est_total_time / dt_sweep_no_tracking))
-            print("tracking duration = {:.3f} s ({:.2%} total)".format(dt_tracking, dt_tracking / dt_sweep))
-            print("data duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
-                dt_data, dt_data / dt_sweep, dt_data / dt_sweep_no_tracking))
-            dt_other = dt_sweep - (dt_data + dt_tracking)
-            print("other duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
-                dt_other, dt_other / dt_sweep, dt_other / dt_sweep_no_tracking))
+            # print("total sweep2d duration = {:.3f} s".format(dt_sweep))
+            # print("estimated sweep duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+            #     est_total_time, est_total_time / dt_sweep, est_total_time / dt_sweep_no_tracking))
+            # print("tracking duration = {:.3f} s ({:.2%} total)".format(dt_tracking, dt_tracking / dt_sweep))
+            # print("data duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+            #     dt_data, dt_data / dt_sweep, dt_data / dt_sweep_no_tracking))
+            # dt_other = dt_sweep - (dt_data + dt_tracking)
+            # print("other duration = {:.3f} s ({:.2%} total, {:.2%} no tracking)".format(
+            #     dt_other, dt_other / dt_sweep, dt_other / dt_sweep_no_tracking))
 
             if self.cancel:
                 self.pb.stop()
