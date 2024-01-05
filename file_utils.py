@@ -27,7 +27,6 @@ def save_data(filename, data, graph=None, fig=None, sweep_params=None, remotedir
         saveremote = True
     else:
         saveremote = False
-    saveremote = False # TODO: uncomment this later
 
     if True:
         scipy.io.savemat(os.path.expanduser(os.path.join('~', 'Documents', 'data_mat', filename+'.mat')), mdict=data)
