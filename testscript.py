@@ -6,7 +6,7 @@ def new_func(self):
     print(self.threadnum)
 
 # Test pb func()
-# self.func = self.default_func
+self.func = self.default_func
 self.func = new_func
 self.run_program()
 
