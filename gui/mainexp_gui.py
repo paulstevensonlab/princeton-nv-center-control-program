@@ -7,6 +7,7 @@ import PyDAQmx
 import pdb
 import numpy as np
 import csv
+import traceback
 from skimage.feature import blob_log
 
 # user-defined imports
@@ -1076,12 +1077,14 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
 
         try:
             file_utils.save_config(outdata, path=os.path.expanduser(os.path.join('~', 'Documents', 'exp_config')))
-        except PermissionError:
+        except PermissionError as err:
             # TODO: why does this intermittently fail on this line:
             #   pickle.dump(configsettings, open(fullpath, 'wb'))
             # with this error?
             # PermissionError: [Errno 13] Permission denied: 'C:\\Users\\NV Confocal\\Documents\\exp_config\\guisettings.config'
-            print('warning: PermissionError when saving experiment config with file_utils.saveconfig()')
+            print(err)
+            print(traceback.format_exc())
+            print('warning: skipping PermissionError when saving experiment config with file_utils.saveconfig()')
 
         self.export_sweep_settings(os.path.expanduser(os.path.join('~', 'Documents', 'exp_config',
                                                                    'sweep_params','manual.yaml')),
