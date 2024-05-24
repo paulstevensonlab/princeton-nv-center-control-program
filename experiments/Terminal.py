@@ -2,6 +2,10 @@ from PyQt5 import QtGui, QtCore
 from PyQt5.QtCore import QThread, pyqtSignal
 
 from . import ExpThread
+from instruments import remotecontrol
+import rpyc
+from rpyc.utils.server import ThreadedServer
+import threading
 
 
 class Terminal(ExpThread.ExpThread):
@@ -26,6 +30,7 @@ class Terminal(ExpThread.ExpThread):
             self.method_dict[m] = getattr(self.mainexp.task_handler, m)
 
         self.method_dict['batch'] = self.batch
+
 
     def flush_cmdqueue(self):
         if self.mainexp.chkbx_terminal_thd.isChecked():

@@ -13,6 +13,10 @@ from skimage.feature import blob_log
 import file_utils
 import instruments as instr
 import experiments as exp
+from instruments import remotecontrol
+import rpyc
+from rpyc.utils.server import ThreadedServer
+import threading
 
 # import UI files
 import mainexp as mainwindow
@@ -152,6 +156,9 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             except Exception as e:
                 print('Instrument %s initilization error!' % ins)
                 raise Exception(e)
+
+        # set a flag for remote processes. Only updated if a remote "instrument" is in the config file
+        self.remote_flag = False
 
         # Create a timer for updating wavemeter reading
         self.wavemeter_timer = QtCore.QTimer()
@@ -344,6 +351,8 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
                 self.setval[ins] = getattr(getattr(self, ins), 'set_shutter')
                 self.getval[ins] = getattr(getattr(self, ins), 'get_shutter')
                 self.exp_params['Instrument'][ins] = self.getval[ins]()
+            elif 'remote' in ins:
+                self.remote_flag = True
 
         '''PULSEBLASTER'''
         # check if pb_dict.csv exists for customizing PB ports.
@@ -862,6 +871,16 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
         self.cbox_picoharp_mode.addItems(['normal', 'pb_esr', 'pb_custom'])
         self.dbl_picoharp_disp_xmin.valueChanged.connect(self.picoharp_disp_scale)
         self.dbl_picoharp_disp_xmax.valueChanged.connect(self.picoharp_disp_scale)
+
+        '''REMOTE TESTING'''
+        self.remoteControl = remotecontrol.ControlService
+        if self.remote_flag:
+            print('I entered the correct region!')
+            t = ThreadedServer(self.remoteControl(self), port=18861)
+            th1 = threading.Thread(target=t.start)
+            th1.start()
+            # t.start()
+            print('I finished with my server stuff')
 
         '''SHORTCUTS'''
         # Set up shortcut buttons
@@ -1718,6 +1737,7 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
         #     self.label_terminal_cmdlog.append('track()')
 
         if numtrack:
+            # add here - check what things are running
             self.pb.set_cw()
             if self.thread_liveapd.isRunning():  # Live APD is running
                 self.liveapd_stop()
@@ -1731,6 +1751,7 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
 
             self.thread_tracker.numtrack = numtrack
             self.thread_tracker.start()
+            # restart the things that were running
         else:  # numtrack==0, just skip tracking and do whatever is left to do, i.e. adding NV to list
             if finished_func is not None:
                 if type(finished_func) == list:

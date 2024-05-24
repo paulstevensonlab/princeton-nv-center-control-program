@@ -6,6 +6,7 @@ import PyDAQmx
 import fitters
 from . import ExpThread
 
+
 prefix = {'G': 1e9, 'M': 1e6, 'k': 1e3, '-': 1.0, 'm': 1e-3, 'u': 1e-6, 'n': 1e-9}
 # Intervals for updating plots
 PLOT_UPDATE_FAST = 100      # Fast updates for 1d scans and small 2d scans.
@@ -320,16 +321,19 @@ class Sweep(ExpThread.ExpThread):
 
             else:  # 2D scan
                 if True:
-                    self.mainexp.esrtrace_pl = np.zeros([numpnts1, numpnts2])
-                    # self.mainexp.esrtrace_pl[:][:] = np.NaN
-                    self.mainexp.esrtrace_pl[:][:] = 1.0
+                    # self.mainexp.esrtrace_pl = np.zeros([numpnts1, numpnts2])
+                    self.mainexp.esrtrace_pl = np.empty([numpnts1, numpnts2])
+                    self.mainexp.esrtrace_pl[:][:] = np.NaN
+                    self.mainexp.esrtrace_pl[:][:] = 0.0
                 if self.use_pb:
-                    self.mainexp.esrtrace_sig = np.zeros([numpnts1, numpnts2])
-                    # self.mainexp.esrtrace_sig[:][:] = np.NaN
-                    self.mainexp.esrtrace_sig[:][:] = 1.0
-                    self.mainexp.esrtrace_ref = np.zeros([numpnts1, numpnts2])
-                    # self.mainexp.esrtrace_ref[:][:] = np.NaN
-                    self.mainexp.esrtrace_ref[:][:] = 1.0
+                    # self.mainexp.esrtrace_sig = np.zeros([numpnts1, numpnts2])
+                    self.mainexp.esrtrace_sig = np.empty([numpnts1, numpnts2])
+                    self.mainexp.esrtrace_sig[:][:] = np.NaN
+                    # self.mainexp.esrtrace_sig[0][0] = 1.0
+                    # self.mainexp.esrtrace_ref = np.zeros([numpnts1, numpnts2])
+                    self.mainexp.esrtrace_ref = np.empty([numpnts1, numpnts2])
+                    self.mainexp.esrtrace_ref[:][:] = np.NaN
+                    # self.mainexp.esrtrace_ref[0][0] = 1.0
                     if self.isINV2:
                         self.mainexp.esrtrace_pl2 = np.empty([numpnts1, numpnts2])
                         self.mainexp.esrtrace_pl2[:] = np.NaN

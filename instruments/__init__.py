@@ -28,3 +28,4 @@ from . import Raspberry
 from . import SRS
 from . import Siglent
 from . import windfreak
+from . import remotecontrol

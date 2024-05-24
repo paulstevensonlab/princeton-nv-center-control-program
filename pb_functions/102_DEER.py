@@ -136,3 +136,26 @@ def pb_deer_mamin(self):
         self.add_inst(['mw1'], self.inst_set.CONTINUE, 0, self.params['pulsewidth_pi2'])
     else:
         self.add_inst(['mw1'], self.inst_set.CONTINUE, 0, self.params['pulsewidth_pi32'])
+
+def pb_deer_classic_params(self):
+    self.params = self.default_params()
+    self.params.update({'pulsewidth_pi': 200e-9, 'pulsewidth_pi2': 100e-9, 'pulsewidth_pi32': 100e-9, 'deerpulsewidth': 200e-9,
+                        'tau': 2e-6, 'dt': 0.0, 'inv': 0})
+
+
+def pb_deer_classic(self):
+    self.add_inst(['mw1'], self.inst_set.CONTINUE, 0, self.params['pulsewidth_pi2'])  # NV pi/2
+
+    self.add_inst([''], self.inst_set.CONTINUE, 0, self.params['pulsewidth_pi']/2)
+    self.add_inst([''], self.inst_set.CONTINUE, 0, self.params['tau']/2 - self.params['deerpulsewidth']/2)
+
+    self.add_inst(['mw2'], self.inst_set.CONTINUE, 0, (self.params['deerpulsewidth'] - self.params['pulsewidth_pi'])/2)
+    self.add_inst(['mw1', 'mw2'], self.inst_set.CONTINUE, 0, self.params['pulsewidth_pi'])
+    self.add_inst(['mw2'], self.inst_set.CONTINUE, 0, (self.params['deerpulsewidth'] - self.params['pulsewidth_pi']) / 2)
+
+    self.add_inst([''], self.inst_set.CONTINUE, 0, self.params['tau']/2 - self.params['deerpulsewidth']/2)
+
+    if np.uint32(self.params['inv']) == 0:  # determine whether to apply pi/2 or 3pi/2 pulse
+        self.add_inst(['mw1'], self.inst_set.CONTINUE, 0, self.params['pulsewidth_pi2'])
+    else:
+        self.add_inst(['mw1'], self.inst_set.CONTINUE, 0, self.params['pulsewidth_pi32'])
