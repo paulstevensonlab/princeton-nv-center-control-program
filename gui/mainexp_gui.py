@@ -1086,9 +1086,19 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             print(traceback.format_exc())
             print('warning: skipping PermissionError when saving experiment config with file_utils.saveconfig()')
 
-        self.export_sweep_settings(os.path.expanduser(os.path.join('~', 'Documents', 'exp_config',
-                                                                   'sweep_params','manual.yaml')),
-                                   manual=True)
+        try:
+            self.export_sweep_settings(os.path.expanduser(os.path.join('~', 'Documents', 'exp_config',
+                                                                       'sweep_params','manual.yaml')),
+                                       manual=True)
+        except PermissionError as err:
+            # TODO: why does this intermittently fail on this line:
+            #   file_utils.dict2yaml(sweep_params, filename)
+            # with this error?
+            # PermissionError: [Errno 13] Permission denied: 'C:\\Users\\NV Confocal\\Documents\\exp_config\\sweep_params\\manual.yaml'
+            print(err)
+            print(traceback.format_exc())
+            print('warning: skipping PermissionError when saving experiment config with file_utils.dict2yaml()')
+
         file_utils.table2csv(self.table_nvlist, os.path.expanduser(os.path.join('~', 'Documents', 'exp_config',
                                                                                 'table_nvlist.csv')))
 
