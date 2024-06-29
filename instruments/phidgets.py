@@ -32,7 +32,11 @@ class RemoteActuator:
             sock.connect((self.ipaddress,self.port))
             sock.sendall(bytes('POS?' + "\n", "utf-8"))
             received = str(sock.recv(1024), "utf-8")
-            print(float(received))
+            try:
+                print(float(received))
+            except:
+                print("received = '{}'".format(received))
+                raise
             return float(received)
 
 
