@@ -325,6 +325,8 @@ class Sweep(ExpThread.ExpThread):
                     self.mainexp.esrtrace_pl = np.empty([numpnts1, numpnts2])
                     self.mainexp.esrtrace_pl[:][:] = np.NaN
                     self.mainexp.esrtrace_pl[:][:] = 0.0
+                    if "odmr" in self.mainexp.cbox_exp_name.currentText() or "rabi" in self.mainexp.cbox_exp_name.currentText():
+                        self.mainexp.esrtrace_pl[:][:] = 1.0
                 if self.use_pb:
                     # self.mainexp.esrtrace_sig = np.zeros([numpnts1, numpnts2])
                     self.mainexp.esrtrace_sig = np.empty([numpnts1, numpnts2])
