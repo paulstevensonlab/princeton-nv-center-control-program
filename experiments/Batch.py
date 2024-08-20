@@ -102,6 +102,7 @@ class Batch(ExpThread.ExpThread):
                             self.log('Calibration script %s error!' % cal_script)
                             self.log(str(e))
                 try:
+                    print('Running %s' % exp_script)
                     self.log('Running %s' % exp_script)
                     exec(open(os.path.expanduser(os.path.join('~', 'Documents', 'exp_scripts', exp_script))).read(),
                          self.method_dict)
