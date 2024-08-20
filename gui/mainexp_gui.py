@@ -1439,8 +1439,6 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
 
         self.export_gui_settings()
 
-        processEvents()
-
     def update_params_display(self, *args):
         for i in range(self.tree_exp_params.model().rowCount()):
             item_paramtype = self.tree_exp_params.model().item(i)
