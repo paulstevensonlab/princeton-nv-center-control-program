@@ -1844,7 +1844,7 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             self.curve_tracker_fit[i].setData(self.trace_tracker_xvals[i], self.trace_tracker_yfit[i])
             self.update_params_table()
 
-            processEvents()
+            # processEvents() # disabled 2024-08-23
 
     def tracker_updateplot_freq(self, laser_name):
         with warnings.catch_warnings():
