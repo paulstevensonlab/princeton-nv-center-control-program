@@ -1690,7 +1690,7 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
 
     def map_updatecursor(self):
         self.map_cursor.setData([self.dbl_tracker_xpos.value()], [self.dbl_tracker_ypos.value()])
-        # processEvents() # disabled 2024-09-10
+        processEvents()
 
     def map_clicked_drive(self, event):
         if self.map_clicked_pos(event):
