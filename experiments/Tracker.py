@@ -145,6 +145,25 @@ class Tracker(ExpThread.ExpThread):
             newpos = self.tracker_pos[direction]
             fitdata = np.ones(self.tracker_numdivs + 1) * np.mean(data)
 
+        save_to_file = True
+        tsv_filepath = r'C:\Users\NV Confocal\Documents\logs\tracker_log\z_tracker.tsv'
+        try:
+            if direction == 2 and save_to_file:
+
+                # save zpos to file
+                import csv
+                with open(tsv_filepath, 'a', encoding='utf8', newline='\n') as csv_fp:
+                    writer = csv.writer(csv_fp, delimiter='\t')
+                    row = [
+                        datetime.datetime.now(),
+                        ' '.join([str(x) for x in xvals]),
+                        ' '.join([str(x) for x in data]),
+                        ' '.join([str(x) for x in fitdata]),
+                        newpos,
+                    ]
+                    writer.writerow(row)
+        except RuntimeError:
+            print("warning: error saving to '{}'".format(tsv_filepath))
         return [xvals, data, fitdata, np.round(newpos * 1000.0) / 1000.0]
 
     # Zhiyang modified for two peak fitting in z-direction
