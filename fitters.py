@@ -86,6 +86,7 @@ class GenericFit:
         # bool extguess is true when user externally provides guess
         self.extguess = False
         self.bounds = (-np.inf, np.inf)
+        self.maxfev = 10**5
 
         # save lists of parameters
         sig = inspect.signature(self.model)
@@ -107,7 +108,8 @@ class GenericFit:
                                       self.xvals, self.data,
                                       bounds=self.bounds,
                                       sigma=self.yerr,
-                                      p0=self.guess)
+                                      p0=self.guess,
+                                      maxfev=self.maxfev)
 
         self.err = np.sqrt(np.diag(self.cov))
 
