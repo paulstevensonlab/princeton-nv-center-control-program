@@ -422,6 +422,7 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
                 self.pb.readout_params[key] = float(self.pb.readout_params[key])
 
         self.chkbx_readoutcal.stateChanged.connect(self.sweep_set_readoutcal)
+        self.chkbx_row_timings.stateChanged.connect(self.sweep_set_row_timings)
 
         '''MUTEX FOR MANUAL SETVAL PROMPTS'''
         self.mutex = QtCore.QMutex()
@@ -2491,6 +2492,12 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
         self.pb.params_readoutcal_enable = bool(state)
 
         self.sweep_exp_update()
+
+
+    def sweep_set_row_timings(self, state):
+        state_bool = bool(state)
+        self.thread_sweep.set_print_row_timings(state_bool)
+        # TODO: should this use a signal instead?
 
     '''SPECTROMETER'''
     def spectrometer_connect(self, b):
