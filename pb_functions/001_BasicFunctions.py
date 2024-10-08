@@ -26,19 +26,16 @@ def pb_odmr2(self):
     self.add_inst(['green'], self.inst_set.STOP, 0, 1e-6)
 
 def pb_odmr_pulsed_2tone_params(self):
-    raise NotImplementedError
     self.params = self.default_params()
-    self.params.update({'pulsewidth1': 100e-6, 'pulsewidth2': 100e-6, 'tau': 100e-6})
-    self.custom_readout = True
+    self.params.update({'pulsewidth1': 50e-6, 'pulsewidth2': 1e-6,
+                        'tau': 10e-6, 'tau2': 10e-6})
 
 def pb_odmr_pulsed_2tone(self):
-    raise NotImplementedError
-    loop_start = self.add_inst(['green'], self.inst_set.LOOP, self.params['reps'], 1e-6)
-    self.add_inst(['green', 'ctr1'], self.inst_set.CONTINUE, 0, self.params['pulsewidth'])
-    self.add_inst(['green'], self.inst_set.CONTINUE, 0, self.params['tau']-self.params['pulsewidth'])
-    self.add_inst(['green', 'mw1', 'ctr0'], self.inst_set.END_LOOP, loop_start, self.params['pulsewidth1'])
-    self.add_inst(['green', 'mw2', 'ctr0'], self.inst_set.END_LOOP, loop_start, self.params['pulsewidth2'])
-    self.add_inst(['green'], self.inst_set.STOP, 0, 1e-6)
+    self.add_inst(['mw1'], self.inst_set.CONTINUE, 0, self.params['pulsewidth1'])
+    self.add_inst([''], self.inst_set.CONTINUE, 0, self.params['tau'])
+    self.add_inst(['mw2'], self.inst_set.CONTINUE, 0, self.params['pulsewidth2'])
+    self.add_inst([''], self.inst_set.CONTINUE, 0, self.params['tau2'])
+
 
 def pb_rabi_params(self):
     self.params = self.default_params()

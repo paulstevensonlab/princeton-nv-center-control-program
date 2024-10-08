@@ -2015,7 +2015,8 @@ class MainExp_GUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
         if not self.thread_sweep.isPLE:
             self.inst_chkbx_mw1_enable.setChecked(
                 exp_name not in ['CW2', 'rabi2', 'odmr2'])  # every esr experiment uses mw1 except CW2
-            self.inst_chkbx_mw2_enable.setChecked(exp_name in ['CW2', 'rabi2', 'odmr2']
+
+            self.inst_chkbx_mw2_enable.setChecked(exp_name in ['CW2', 'rabi2', 'odmr2', 'odmr_pulsed_2tone']
                                                           or 'DQ' in exp_name
                                                           or exp_name in ['deer', 'deer_mamin', 'awg_qurep']
                                                           or 'deer' in exp_name
