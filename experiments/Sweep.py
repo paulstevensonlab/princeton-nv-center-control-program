@@ -268,7 +268,7 @@ class Sweep(ExpThread.ExpThread):
                     self.mainexp.mw1.set_mod(0)
                     self.mainexp.set_inst_stat['mw1_iq'](0)
 
-            if self.mainexp.inst_chkbx_mw2_enable.isChecked():  # allow bypassing mw1 when debugging
+            if self.mainexp.inst_chkbx_mw2_enable.isChecked():  # allow bypassing mw2 when debugging
                 if 'qurep2' in exp_name:
                     # uses AWG so turn on mods on generator, and set to I/Q
                     self.mainexp.mw2.set_mod(1)
