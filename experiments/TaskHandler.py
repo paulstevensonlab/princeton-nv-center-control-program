@@ -411,5 +411,7 @@ class TaskHandler(ExpThread.ExpThread):
             self.mainexp.inst_chkbx_mw1_enable.setChecked(setflag)
         elif src == 2:
             self.mainexp.inst_chkbx_mw2_enable.setChecked(setflag)
+        else:
+            print("error: set_mw_checked(): unrecognized src: '{}'".format(src))
             return
         return
