@@ -19,7 +19,9 @@ def pb_odmr2_params(self):
 
 
 def pb_odmr2(self):
-    loop_start = self.add_inst(['green', 'ctr1'], self.inst_set.LOOP, self.params['reps'], self.params['tau'])
+    loop_start = self.add_inst(['green'], self.inst_set.LOOP, self.params['reps'], 1e-6)
+    self.add_inst(['green', 'ctr1'], self.inst_set.CONTINUE, 0, self.params['pulsewidth'])
+    self.add_inst(['green'], self.inst_set.CONTINUE, 0, self.params['tau']-self.params['pulsewidth'])
     self.add_inst(['green', 'mw2', 'ctr0'], self.inst_set.END_LOOP, loop_start, self.params['pulsewidth'])
     self.add_inst(['green'], self.inst_set.STOP, 0, 1e-6)
 
