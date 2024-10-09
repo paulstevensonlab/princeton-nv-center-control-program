@@ -11,6 +11,19 @@ def pb_odmr(self):
     self.add_inst(['green', 'mw1', 'ctr0'], self.inst_set.END_LOOP, loop_start, self.params['pulsewidth'])
     self.add_inst(['green'], self.inst_set.STOP, 0, 1e-6)
 
+def pb_odmr_switched_params(self):
+    self.params = self.default_params()
+    self.params.update({'pulsewidth': 100e-6, 'tau': 100e-6})
+    self.custom_readout = True
+
+def pb_odmr_switched(self):
+    loop_start = self.add_inst(['green'], self.inst_set.LOOP, self.params['reps'], 1e-6)
+    self.add_inst(['green'], self.inst_set.CONTINUE, 0, self.params['tau'] - self.params['pulsewidth'])
+    self.add_inst(['green', 'ctr1'], self.inst_set.CONTINUE, 0, self.params['pulsewidth'])
+    self.add_inst(['green'], self.inst_set.CONTINUE, 0, 1e-6)
+    self.add_inst(['green', 'mw1', 'ctr0'], self.inst_set.END_LOOP, loop_start, self.params['pulsewidth'])
+    self.add_inst(['green'], self.inst_set.STOP, 0, 1e-6)
+
 
 def pb_odmr2_params(self):
     self.params = self.default_params()
